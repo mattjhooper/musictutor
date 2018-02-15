@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Card, Image} from 'semantic-ui-react';
 
 const pupilList = [
     {
@@ -76,8 +77,22 @@ class PupilManager extends Component {
         pupils: pupilList
     }
     render() {
+      console.log (this.state.pupils);
+
+      const pupil = this.state.pupils[0];
+      
       return(
-        <div>Pupils: { this.state.pupils.length}</div>
+          <div>
+        <p>No of Pupils: {this.state.pupils.length } </p>
+        <Card.Group>
+            <Card>
+                <Card.Content>
+                <Image floated='right' size='small' src={pupil['Profile Picture']} />
+                <Card.Header>{pupil['Name']}</Card.Header>
+                </Card.Content>
+            </Card>
+        </Card.Group>
+        </div>
       );
     }
 }
