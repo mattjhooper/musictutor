@@ -1,78 +1,79 @@
 import React, { Component } from "react";
-import { Card, Image } from "semantic-ui-react";
+import { Card, Image, Statistic } from "semantic-ui-react";
+import Moment from "react-moment";
 
 const pupilList = [
   {
-    "Pupil ID": "P1",
-    Name: "Matt",
-    "Tutor ID": "T1",
-    "Tutor Name": "The Piano Man",
-    "Contact Name": "Matt",
-    "Contact phone": "07950 212121",
-    "Contact email": "my.email@gmail.com",
-    "Start Date": "2018-01-01",
-    Instrument: "Piano",
-    "Lesson Rate": "15.0",
-    "Account Balance": "0.00",
-    "Lesson Interval": "7",
-    "Next Lesson Date": "2018-02-14",
-    "Profile Picture":
+    pupilID: "P1",
+    name: "Matt",
+    tutorID: "T1",
+    tutorName: "The Piano Man",
+    contactName: "Matt",
+    contactPhone: "07950 212121",
+    contactEmail: "my.email@gmail.com",
+    startDate: "2018-01-01",
+    instrument: "Piano",
+    lessonRate: "15.0",
+    accountBalance: "0.00",
+    lessonInterval: "7",
+    nextLessonDate: "2018-02-14",
+    profilePicture:
       "https://musictutorapiba1f.blob.core.windows.net/profilepics/M75.jpg",
-    Notes: ""
+    notes: ""
   },
   {
-    "Pupil ID": "P2",
-    Name: "Mark",
-    "Tutor ID": "T1",
-    "Tutor Name": "The Piano Man",
-    "Contact Name": "Mark",
-    "Contact phone": "07950 212121",
-    "Contact email": "p2@email.com",
-    "Start Date": "2018-01-01",
-    Instrument: "Piano",
-    "Lesson Rate": "15.0",
-    "Account Balance": "0.00",
-    "Lesson Interval": "7",
-    "Next Lesson Date": "2018-02-14",
-    "Profile Picture":
+    pupilID: "P2",
+    name: "Mark",
+    tutorID: "T1",
+    tutorName: "The Piano Man",
+    contactName: "Mark",
+    contactPhone: "07950 212121",
+    contactEmail: "p2@email.com",
+    startDate: "2018-01-01",
+    instrument: "Piano",
+    lessonRate: "15.0",
+    accountBalance: "30.00",
+    lessonInterval: "7",
+    nextLessonDate: "2018-02-14",
+    profilePicture:
       "https://musictutorapiba1f.blob.core.windows.net/profilepics/85.jpg",
-    Notes: ""
+    notes: ""
   },
   {
-    "Pupil ID": "P3",
-    Name: "Mary",
-    "Tutor ID": "T1",
-    "Tutor Name": "The Piano Man",
-    "Contact Name": "Mary",
-    "Contact phone": "07950 212121",
-    "Contact email": "p3@email.com",
-    "Start Date": "2018-01-01",
-    Instrument: "Piano",
-    "Lesson Rate": "15.0",
-    "Account Balance": "0.00",
-    "Lesson Interval": "7",
-    "Next Lesson Date": "2018-02-14",
-    "Profile Picture":
+    pupilID: "P3",
+    name: "Mary",
+    tutorID: "T1",
+    tutorName: "The Piano Man",
+    contactName: "Mary",
+    contactPhone: "07950 212121",
+    contactEmail: "p3@email.com",
+    startDate: "2018-01-01",
+    instrument: "Piano",
+    lessonRate: "15.0",
+    accountBalance: "0.00",
+    lessonInterval: "7",
+    nextLessonDate: "2018-02-14",
+    profilePicture:
       "https://musictutorapiba1f.blob.core.windows.net/profilepics/W85.jpg",
-    Notes: ""
+    notes: ""
   },
   {
-    "Pupil ID": "P4",
-    Name: "Martha",
-    "Tutor ID": "T1",
-    "Tutor Name": "The Piano Man",
-    "Contact Name": "Martha",
-    "Contact phone": "07950 212121",
-    "Contact email": "p4@email.com",
-    "Start Date": "2018-01-01",
-    Instrument: "Piano",
-    "Lesson Rate": "15.0",
-    "Account Balance": "0.00",
-    "Lesson Interval": "7",
-    "Next Lesson Date": "2018-02-14",
-    "Profile Picture":
+    pupilID: "P4",
+    name: "Martha",
+    tutorID: "T1",
+    tutorName: "The Piano Man",
+    contactName: "Martha",
+    contactPhone: "07950 212121",
+    contactEmail: "p4@email.com",
+    startDate: "2018-01-01",
+    instrument: "Piano",
+    lessonRate: "15.0",
+    accountBalance: "-15.00",
+    lessonInterval: "7",
+    nextLessonDate: "2018-02-14",
+    profilePicture:
       "https://musictutorapiba1f.blob.core.windows.net/profilepics/21.jpg",
-    Notes: ""
+    notes: ""
   }
 ];
 
@@ -87,12 +88,20 @@ class PupilManager extends Component {
       return (
         <Card>
           <Card.Content>
-            <Image
-              floated="right"
-              size="small"
-              src={pupil["Profile Picture"]}
-            />
-            <Card.Header>{pupil["Name"]}</Card.Header>
+            <Image floated="right" size="tiny" src={pupil.profilePicture} />
+            <Card.Header>{pupil.name}</Card.Header>
+            <Statistic.Group color={pupil.accountBalance < 0 ? "red" : "green"}>
+              <Statistic>
+                <Statistic.Label>Account Balance</Statistic.Label>
+                <Statistic.Value>{pupil.accountBalance}</Statistic.Value>
+              </Statistic>
+            </Statistic.Group>
+          </Card.Content>
+          <Card.Content extra>
+            <Card.Description>
+              Next Lesson:{" "}
+              <Moment format="ddd DD/MM/YYYY">{pupil.nextLessonDate}</Moment>
+            </Card.Description>
           </Card.Content>
         </Card>
       );
