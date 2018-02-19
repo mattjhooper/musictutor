@@ -58,7 +58,7 @@ class CancelLessonModel extends Component {
             />
             <Form.TextArea
               label="Notes"
-              placeholder="Notes from the lesson..."
+              placeholder="Reason for cancellation..."
               onChange={this.notesChange}
             />
           </Form>

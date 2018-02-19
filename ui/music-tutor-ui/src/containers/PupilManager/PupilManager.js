@@ -48,6 +48,22 @@ class PupilManager extends Component {
     })
   }
 
+  onPaymentAdd = (pupilID, paymentDetails) => {
+    this.setState((prevState, props) => {
+      const pupilIndex = prevState.pupils.findIndex(p => p.pupilID === pupilID)
+
+      const pupil = { ...prevState.pupils[pupilIndex] }
+
+      pupil.accountBalance = Number(pupil.accountBalance) + Number(paymentDetails.paymentAmount);
+
+      prevState.pupils[pupilIndex] = pupil;
+      
+      return {
+        pupils: prevState.pupils
+      }
+    })
+  }
+
   render() {
     // console.log(this.state.pupils);
 
@@ -59,6 +75,7 @@ class PupilManager extends Component {
           selectedPupil={this.state.selected}
           onLessonComplete={this.onLessonComplete}
           onLessonCancel={this.onLessonCancel}
+          onPaymentAdd={this.onPaymentAdd}
         />
       );
     });
