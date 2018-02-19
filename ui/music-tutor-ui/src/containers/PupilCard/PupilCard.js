@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Card, Image, Statistic } from "semantic-ui-react";
 import Moment from "react-moment";
 import CompleteLessonModal from "../CompleteLessonModal/CompleteLessonModal";
+import CancelLessonModal from"../CancelLessonModal/CancelLessonModal";
 
 class PupilCard extends Component {
   state = { isCompletingLesson: false };
@@ -37,9 +38,7 @@ class PupilCard extends Component {
             <Moment format="ddd DD/MM/YYYY">{pupil.nextLessonDate}</Moment>
             <div className="ui two buttons">
               <CompleteLessonModal pupil={pupil} onLessonComplete={this.props.onLessonComplete} />
-              <Button basic negative>
-                Cancel
-              </Button>
+              <CancelLessonModal pupil={pupil} onLessonCancel={this.props.onLessonCancel} />
             </div>
           </Card.Description>
         </Card.Content>
