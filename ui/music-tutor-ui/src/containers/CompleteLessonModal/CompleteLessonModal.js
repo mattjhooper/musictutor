@@ -62,9 +62,7 @@ class CompleteLessonModal extends Component {
         onOpen={this.open}
         onClose={this.close}
         trigger={
-          <Button basic positive>
-            Complete
-          </Button>
+          <Button basic positive content="Lesson Complete" icon="check" labelPosition="left" />
         }
       >
         <Modal.Header>{this.props.pupil.name} - Lesson Complete</Modal.Header>

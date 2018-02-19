@@ -53,7 +53,7 @@ class AddPaymentModal extends Component {
         onOpen={this.open}
         onClose={this.close}
         trigger={
-            <Button content="Add Payment" icon="payment" labelPosition="left" />
+            <Button basic content="Add Payment" icon="payment" labelPosition="left" />
         }
       >
         <Modal.Header>{this.props.pupil.name} - Add Payment</Modal.Header>

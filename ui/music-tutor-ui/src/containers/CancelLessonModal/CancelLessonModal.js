@@ -41,10 +41,8 @@ class CancelLessonModel extends Component {
         open={open}
         onOpen={this.open}
         onClose={this.close}
-        trigger={
-          <Button basic negative>
-            Cancel
-          </Button>
+        trigger={         
+          <Button basic negative content="Lesson Cancelled" icon="cancel" labelPosition="left" />
         }
       >
         <Modal.Header>{this.props.pupil.name} - Cancel Lesson</Modal.Header>
