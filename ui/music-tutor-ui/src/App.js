@@ -1,5 +1,5 @@
 import React from 'react';
-import PupilManager from './containers/PupilManager'
+import PupilManager from './containers/PupilManager/PupilManager'
 
 const App = ()=> {
     return (
