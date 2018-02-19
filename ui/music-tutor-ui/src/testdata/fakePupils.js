@@ -15,7 +15,8 @@ const pupilList = [
       nextLessonDate: "2018-02-14",
       profilePicture:
         "https://musictutorapiba1f.blob.core.windows.net/profilepics/M75.jpg",
-      notes: ""
+      notes: "",
+      defaultPaymentMethod: "cash"
     },
     {
       pupilID: "P2",
@@ -33,7 +34,8 @@ const pupilList = [
       nextLessonDate: "2018-02-15",
       profilePicture:
         "https://musictutorapiba1f.blob.core.windows.net/profilepics/85.jpg",
-      notes: ""
+      notes: "",
+      defaultPaymentMethod: "bank transfer"
     },
     {
       pupilID: "P3",
@@ -51,7 +53,8 @@ const pupilList = [
       nextLessonDate: "2018-02-16",
       profilePicture:
         "https://musictutorapiba1f.blob.core.windows.net/profilepics/W85.jpg",
-      notes: ""
+      notes: "",
+      defaultPaymentMethod: "cash"
     },
     {
       pupilID: "P4",
@@ -69,7 +72,8 @@ const pupilList = [
       nextLessonDate: "2018-02-17",
       profilePicture:
         "https://musictutorapiba1f.blob.core.windows.net/profilepics/21.jpg",
-      notes: ""
+      notes: "",
+      defaultPaymentMethod: "bank transfer"
     }
   ];
 

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Button, Card, Image, Statistic } from "semantic-ui-react";
+import { Card, Image, Statistic } from "semantic-ui-react";
 import Moment from "react-moment";
 import CompleteLessonModal from "../CompleteLessonModal/CompleteLessonModal";
+import CancelLessonModal from "../CancelLessonModal/CancelLessonModal";
+import AddPaymentModal from "../AddPaymentModal/AddPaymentModal";
 
 class PupilCard extends Component {
   state = { isCompletingLesson: false };
@@ -36,15 +38,22 @@ class PupilCard extends Component {
             Next Lesson:{" "}
             <Moment format="ddd DD/MM/YYYY">{pupil.nextLessonDate}</Moment>
             <div className="ui two buttons">
-              <CompleteLessonModal pupil={pupil} onLessonComplete={this.props.onLessonComplete} />
-              <Button basic negative>
-                Cancel
-              </Button>
+              <CompleteLessonModal
+                pupil={pupil}
+                onLessonComplete={this.props.onLessonComplete}
+              />
+              <CancelLessonModal
+                pupil={pupil}
+                onLessonCancel={this.props.onLessonCancel}
+              />
             </div>
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button content="Add Payment" icon="payment" labelPosition="left" />
+          <AddPaymentModal
+            pupil={pupil}
+            onPaymentAdd={this.props.onPaymentAdd}
+          />
         </Card.Content>
       </Card>
     );
