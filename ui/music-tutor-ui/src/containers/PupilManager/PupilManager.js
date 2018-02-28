@@ -20,8 +20,7 @@ class PupilManager extends Component {
   };
 
   onLessonComplete = (pupilID, lessonDetails) => {
-    console.log(`PupilID: ${pupilID}. Lesson: ${lessonDetails.nextLessonDate}`);
-
+    
     this.setState((prevState, props) => {
       const pupilIndex = prevState.pupils.findIndex(p => p.pupilID === pupilID);
 
@@ -94,14 +93,12 @@ class PupilManager extends Component {
 
     return (
       <div>
-        <p>
           <Input
             icon="search"
             placeholder="Search..."
             value={this.state.filterText}
             onChange={this.filterChange}
           />
-        </p>
         <p>Found {pupilCards.length} of {this.state.pupils.length} pupils</p>
         <Card.Group itemsPerRow={3} stackable>
           {pupilCards}{" "}

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import moment from "moment";
+import DateField from "../../Components/DateFIeld/DateField"
+
 
 class CompleteLessonModal extends Component {
   state = {
@@ -62,18 +64,25 @@ class CompleteLessonModal extends Component {
         onOpen={this.open}
         onClose={this.close}
         trigger={
-          <Button basic positive content="Lesson Complete" icon="check" labelPosition="left" />
+          <Button
+            basic
+            positive
+            content="Lesson Complete"
+            icon="check"
+            labelPosition="left"
+          />
         }
       >
         <Modal.Header>{this.props.pupil.name} - Lesson Complete</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.props.onCompletion}>
-            <Form.Input
+            <DateField
               label="Date"
-              value={this.state.lessonDate.format("DD/MM/YYYY")}
-              placeholder="DD/MM/YYYY"
-              onChange={this.dateChange}
+              required 
+              defaultDate={this.state.lessonDate.format("DD/MM/YYYY")}
+              onValidDate={this.dateChange}
             />
+            {this.state.lessonDate.format("YYYY-MM-DD")}
             <Form.Input
               label="Rate"
               value={this.state.rate}
@@ -90,11 +99,13 @@ class CompleteLessonModal extends Component {
               checked={this.state.includePayment}
               onClick={this.includePaymentChange}
             />
-            <Form.Input
+            <DateField
               label="Next Lesson"
-              value={this.state.nextLessonDate.format("DD/MM/YYYY")}
-              placeholder="DD/MM/YYYY"
-              onChange={this.nextLessonChange}
+              defaultDate={this.state.lessonDate
+                .clone()
+                .add(this.props.pupil.lessonInterval, "day")
+                .format("DD/MM/YYYY")}
+              onValidDate={this.nextLessonChange}
             />
           </Form>
         </Modal.Content>
