@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import {Button, Form, Modal} from "semantic-ui-react";
+import DateField from "../../Components/DateFIeld/DateField"
 
 class AddPaymentModal extends Component {
   state = {
@@ -59,11 +60,10 @@ class AddPaymentModal extends Component {
         <Modal.Header>{this.props.pupil.name} - Add Payment</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.addPayment}>
-            <Form.Input
+            <DateField
               label="Date"
-              value={this.state.paymentDate.format("DD/MM/YYYY")}
-              placeholder="DD/MM/YYYY"
-              onChange={this.dateChange}
+              defaultDate={this.state.paymentDate.format("DD/MM/YYYY")}
+              onValidDate={this.dateChange}
             />
             <Form.Input
               label="Amount"

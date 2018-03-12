@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, Modal } from "semantic-ui-react";
 import moment from "moment";
+import DateField from "../../Components/DateFIeld/DateField"
 
 class CancelLessonModel extends Component {
   state = {
@@ -35,7 +36,7 @@ class CancelLessonModel extends Component {
 
   render() {
     const { open } = this.state;
-
+    
     return (
       <Modal
         open={open}
@@ -48,12 +49,11 @@ class CancelLessonModel extends Component {
         <Modal.Header>{this.props.pupil.name} - Cancel Lesson</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.props.onCompletion}>
-          <Form.Input
+            <DateField
               label="Next Lesson"
-              value={this.state.nextLessonDate.format("DD/MM/YYYY")}
-              placeholder="DD/MM/YYYY"
-              onChange={this.nextLessonChange}
-            />
+              defaultDate={this.state.nextLessonDate.format("DD/MM/YYYY")}
+              onValidDate={this.nextLessonChange}
+            />            
             <Form.TextArea
               label="Notes"
               placeholder="Reason for cancellation..."

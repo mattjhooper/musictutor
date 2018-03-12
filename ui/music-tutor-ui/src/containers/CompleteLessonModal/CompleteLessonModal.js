@@ -107,6 +107,10 @@ class CompleteLessonModal extends Component {
                 .format("DD/MM/YYYY")}
               onValidDate={this.nextLessonChange}
             />
+            {this.state.lessonDate
+                .clone()
+                .add(this.props.pupil.lessonInterval, "day")
+                .format("YYYY-MM-DD")}
           </Form>
         </Modal.Content>
         <Modal.Actions>

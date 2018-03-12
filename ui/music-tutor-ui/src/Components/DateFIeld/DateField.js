@@ -8,14 +8,16 @@ class DateField extends Component {
 
     let internalDate = null;
     let isValid = false;
+    let displayDate = "";
 
     if (this.isValidDate(props.defaultDate)) {
       internalDate = moment(props.defaultDate, "DD/MM/YYYY");
       isValid = true;
+      displayDate = props.defaultDate;
     }
 
     this.state = {
-      displayDate: props.defaultDate,
+      displayDate: displayDate,
       internalDate: internalDate,
       isValid: isValid
     };
@@ -25,14 +27,16 @@ class DateField extends Component {
     if (this.props.defaultDate !== nextProps.defaultDate) {
       let internalDate = null;
       let isValid = false;
+      let displayDate = "";
 
       if (this.isValidDate(nextProps.defaultDate)) {
         internalDate = moment(nextProps.defaultDate, "DD/MM/YYYY");
         isValid = true;
+        displayDate = nextProps.defaultDate;
       }
 
       this.setState({
-        displayDate: nextProps.defaultDate,
+        displayDate: displayDate,
         internalDate: internalDate,
         isValid: isValid
       });
